@@ -2,7 +2,7 @@
 title: "Hw1"
 author: "Yuan Meng"
 date: 2021-9-29
-output: html_document
+output: github_document
 ---
 #Problem 1
 ```{r message = FALSE}
