@@ -19,16 +19,16 @@ df_1
     ## # A tibble: 10 × 4
     ##    vec_norm vec_log vec_char vec_factor
     ##       <dbl> <lgl>   <chr>    <fct>     
-    ##  1   0.471  TRUE    My       I         
-    ##  2  -1.34   FALSE   name     II        
-    ##  3  -1.07   FALSE   is       III       
-    ##  4   0.525  TRUE    Yuan     II        
-    ##  5   2.89   TRUE    I        III       
-    ##  6  -0.265  FALSE   like     II        
-    ##  7   1.42   TRUE    travel   I         
-    ##  8   0.155  TRUE    and      II        
-    ##  9  -0.0820 FALSE   read     III       
-    ## 10   1.22   TRUE    novels   I
+    ##  1   -0.950 FALSE   My       I         
+    ##  2   -0.255 FALSE   name     II        
+    ##  3    0.268 TRUE    is       III       
+    ##  4    0.907 TRUE    Yuan     II        
+    ##  5    2.45  TRUE    I        III       
+    ##  6    0.337 TRUE    like     II        
+    ##  7    1.95  TRUE    travel   I         
+    ##  8   -0.391 FALSE   and      II        
+    ##  9    0.963 TRUE    read     III       
+    ## 10    0.936 TRUE    novels   I
 
 ``` r
 x1_norm = df_1 %>% pull(vec_norm) # pull random sample variable out of the dataframe
@@ -38,13 +38,13 @@ x4_factor = df_1 %>% pull(vec_factor) # pull factor vector variable out of the d
 mean(x1_norm) # calculate mean
 ```
 
-    ## [1] 0.393147
+    ## [1] 0.6215238
 
 ``` r
 mean(x2_log)
 ```
 
-    ## [1] 0.6
+    ## [1] 0.7
 
 ``` r
 mean(x3_char)
@@ -103,8 +103,8 @@ three type of species: Adelie, Chinstrap, and Gentoo. Those species from
 three different island. There are Torgersen, Biscoe, and Dream. The
 years are 2007, 2008, and 2009.
 
-For the size of the data set, it have 344rows and `r ncol(penguins)`
-columns.The mean flipper length is 200.9152047
+For the size of the data set, it have 344 rows and 8 columns.The mean
+flipper length is 200.9152047
 
 ``` r
 ggplot() + geom_point(aes(x=flipper_length_mm,

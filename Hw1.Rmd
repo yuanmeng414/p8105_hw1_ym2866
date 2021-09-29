@@ -44,7 +44,7 @@ penguins
 ```
 The number of the observation is `r penguins %>% summarize(n=n())`. The dataset of penguins have several variables. They are species, island, bill_length_mm, bill_depth_mm,f lipper_length_mm, body_mass_g, sex, year.There are three type of species: Adelie, Chinstrap, and Gentoo. Those species from three different island. There are Torgersen, Biscoe, and Dream. The years are 2007, 2008, and 2009. 
 
-For the size of the data set, it have `r nrow(penguins)`rows and ` r ncol(penguins)` columns.The mean flipper length is `r summarize(penguins, mean(flipper_length_mm, na.rm=T))`
+For the size of the data set, it have `r nrow(penguins)` rows and `r ncol(penguins)` columns.The mean flipper length is `r summarize(penguins, mean(flipper_length_mm, na.rm=T))`
 
 ```{r}
 ggplot() + geom_point(aes(x=flipper_length_mm,
