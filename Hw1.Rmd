@@ -1,0 +1,63 @@
+---
+title: "Hw1"
+author: "Yuan Meng"
+date: 2021-9-29
+output: html_document
+---
+#Problem 1
+```{r message = FALSE}
+library(tidyverse)
+df_1 = tibble(
+  vec_norm = rnorm(10),
+  vec_log = vec_norm > 0,
+  vec_char = c("My", "name", "is", "Yuan", "I", "like", "travel", "and", "read", "novels"),
+  vec_factor = factor(c("I","II","III","II","III","II","I","II","III","I"))
+) #generate a data frame
+df_1
+```
+
+```{r}
+x1_norm = df_1 %>% pull(vec_norm) # pull random sample variable out of the dataframe
+x2_log = df_1 %>% pull(vec_log)  # pull logical vector variable out of the dataframe
+x3_char = df_1 %>% pull(vec_char) # pull character vector variable out of the dataframe
+x4_factor = df_1 %>% pull(vec_factor) # pull factor vector variable out of the dataframe
+mean(x1_norm) # calculate mean
+mean(x2_log)
+mean(x3_char)
+mean(x4_factor)
+```
+We can see that mean does not work for character vector and it work for random sample, character vector, and factor vector. 
+
+```{r eval = FALSE}
+as.numeric(x1_norm)  #convert variables from one type to another (to numerical type)
+as.numeric(x2_log)   #convert variables from one type to another
+as.numeric(x3_char)  #convert variables from one type to another
+as.numeric(x4_factor) #convert variables from one type to another
+```
+
+
+#Problem2
+
+```{r}
+data("penguins", package = "palmerpenguins") #load the penguins dataset
+penguins
+```
+The number of the observation is `r penguins %>% summarize(n=n())`. The dataset of penguins have several variables. They are species, island, bill_length_mm, bill_depth_mm,f lipper_length_mm, body_mass_g, sex, year.There are three type of species: Adelie, Chinstrap, and Gentoo. Those species from three different island. There are Torgersen, Biscoe, and Dream. The years are 2007, 2008, and 2009. 
+
+For the size of the data set, it have `r nrow(penguins)`rows and ` r ncol(penguins)` columns.The mean flipper length is `r summarize(penguins, mean(flipper_length_mm, na.rm=T))`
+
+```{r}
+ggplot() + geom_point(aes(x=flipper_length_mm,
+                   y=bill_length_mm),
+               data=penguins)  #Make a scatterplot for flipper_length_mm vs bill_length_mm
+ggsave("scatter_plot.pdf", height = 4, width = 6) # Export scatterplot to project directory
+```
+
+```{r}
+gcolor_penguin <- ggplot() + 
+    theme_bw() + geom_point(aes(x=flipper_length_mm,
+                   y=bill_length_mm,
+                   col=species),
+               data=penguins) # color points using the species variable
+gcolor_penguin
+```
